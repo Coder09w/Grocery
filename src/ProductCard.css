@@ -19,3 +19,12 @@
   justify-content: space-between; /* Space out content evenly */
   height: calc(100% - 150px); /* Remaining height after image */
 }
+
+/* Override the specific class for product images */
+:where(.css-dev-only-do-not-override-1kf000u) .ant-card .ant-card-cover > * {
+  display: block;
+  height: 300px; /* Set fixed height */
+  width: 100%; /* Full width */
+  border-radius: 8px 8px 0 0; /* Maintain border radius */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+}
