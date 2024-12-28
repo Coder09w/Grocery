@@ -1,0 +1,40 @@
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #1890ff;
+}
+
+.ant-card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ant-card-body {
+  padding: 10px;
+}
+
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-btn-primary:hover {
+  background-color: #40a9ff;
+}
+
+.ant-input-search {
+  width: 100%;
+}

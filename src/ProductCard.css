@@ -1,0 +1,21 @@
+.image-container {
+  width: 100%; /* Full width of the card */
+  height: 150px; /* Fixed height for uniformity */
+  overflow: hidden; /* Hide any overflow */
+  display: flex; /* Use flexbox to center the image */
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.product-image {
+  width: 100%; /* Make the image take the full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.card-content {
+  display: flex; /* Use flexbox for content */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Space out content evenly */
+  height: calc(100% - 150px); /* Remaining height after image */
+}
