@@ -7,4 +7,5 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Ensure this matches your deployment setup
   },
+  // base: "./" // Remove or comment this line if it exists
 });
