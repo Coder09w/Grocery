@@ -1,12 +1,12 @@
 // src/App.jsx
-import React, { useState, useEffect } from 'react'; 
-import { Layout, Drawer, Button, Typography, Input } from 'antd'; 
+import React, { useState } from 'react';
+import { Layout, Drawer, Button, Typography, Input } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Sidebar from './sidebar'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './sidebar';
 import ShoppingCart from './pages/ShoppingCart';
 import ProductList from './ProductList'; // Import ProductList for displaying all products
-import './App.css'; 
+import './App.css';
 import Checkout from './pages/Checkout';
 
 const { Header, Content, Footer } = Layout;
@@ -16,7 +16,7 @@ function App() {
   const [visible, setVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const showDrawer = () => setVisible(true); 
+  const showDrawer = () => setVisible(true);
   const closeDrawer = () => setVisible(false);
 
   return (
@@ -24,7 +24,7 @@ function App() {
       <Layout style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Header style={headerStyle}>
           <div style={titleStyle}>
-            <Title level={1} style={{ color: 'white', margin: 0, fontSize: '36px' }}>GROCERYFY</Title>
+            <Title level={2} style={titleTextStyle}>GROCERYFY</Title>
           </div>
           <div style={searchContainerStyle}>
             <Input 
@@ -43,11 +43,12 @@ function App() {
         </Header>
 
         <Drawer
-          title="Categories"
+          title={<span style={drawerTitleStyle}>Categories</span>}
           placement="left"
           closable={true}
           onClose={closeDrawer}
           visible={visible}
+          bodyStyle={drawerBodyStyle}
         >
           <Sidebar />
         </Drawer>
@@ -65,41 +66,70 @@ function App() {
           </Routes>
         </Content>
 
-        <Footer style={{ textAlign: 'center' }}>Groceryfy ©2024 Created by Your Name</Footer>
+        <Footer style={footerStyle}>Groceryfy ©2024 Created by Your Name</Footer>
       </Layout>
     </Router>
   );
 }
 
 const headerStyle = {
-  backgroundColor: '#1890ff',
+  background: 'linear-gradient(90deg, #1890ff 0%, #40a9ff 100%)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '0 20px',
+  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
 };
 
 const titleStyle = {
   flex: 1,
 };
 
+const titleTextStyle = {
+  color: 'white',
+  margin: 0,
+  fontSize: '28px',
+  fontWeight: 'bold',
+};
+
 const searchContainerStyle = {
-  flex: 1,
+  flex: 2,
   display: 'flex',
   justifyContent: 'center', // Center the search bar horizontally
 };
 
 const searchInputStyle = {
-  width: '400px', // Set a width for the search input
+  width: '100%',
+  maxWidth: '400px',
+  borderRadius: '8px',
+  padding: '5px 10px',
 };
 
 const menuButtonStyle = {
   marginLeft: 'auto',
 };
 
+const drawerTitleStyle = {
+  fontSize: '18px',
+  fontWeight: 'bold',
+  color: '#1890ff',
+};
+
+const drawerBodyStyle = {
+  padding: '0 15px',
+};
+
 const contentStyle = {
   padding: '20px',
-  backgroundColor: '#f0f2f5',
+  backgroundColor: '#f5f5f5',
+};
+
+const footerStyle = {
+  textAlign: 'center',
+  padding: '10px 20px',
+  backgroundColor: '#001529',
+  color: 'white',
+  fontSize: '14px',
 };
 
 export default App;
